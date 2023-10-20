@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Tambah Konsumen</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <h3 class="mt-3">Update Konsumen</h3>
+ 
+        <form action="#" th:action="@{/update}" th:object="${konsumen}" method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>ID</label>
+                    <input type="number" th:field="*{id}" placeholder="ID" class="form-control" readonly> 
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Nama</label>
+                    <input type="text" th:field="*{nama}" placeholder="Nama" class="form-control "> 
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label>Alamat</label>
+                    <input type="text" th:field="*{alamat}" placeholder="Alamat" class="form-control ">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Kota</label>
+                    <input type="text" th:field="*{kota}" placeholder="Kota" class="form-control "> 
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Provinsi</label>
+                    <input type="text" th:field="*{provinsi}" placeholder="Provinsi" class="form-control ">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Tanggal Registrasi</label>
+                    <input type="date" th:field="*{tglRegistrasi}" placeholder="Tanggal Registrasi" class="form-control "> 
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Status</label>
+                    <select th:field="*{status}" class="form-control" >
+                        <option th:value="'aktif'" th:text="Aktif"></option>
+                        <option th:value="'non-aktif'" th:text="Non-Aktif"></option>
+                    </select>
+                </div>
+            </div>
+ 
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <a th:href="@{/konsumen}" type="button" class="btn btn-warning">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
